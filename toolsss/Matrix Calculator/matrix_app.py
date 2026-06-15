@@ -1,8 +1,19 @@
 import streamlit as st
 import numpy as np
 
-# 设置页面标题
-st.set_page_config(page_title="矩阵计算器", layout="wide")
+# 设置页面标题，并强制指定语言为中文，防止浏览器自动翻译导致崩溃
+st.set_page_config(
+    page_title="矩阵计算器", 
+    layout="wide",
+    menu_items={
+        'Get Help': None,
+        'Report a bug': None,
+        'About': None
+    }
+)
+
+# 强制在 HTML 层面注入中文语言标签
+st.markdown('<html lang="zh-CN"></html>', unsafe_allow_html=True)
 st.title("🧮 智能矩阵计算器")
 st.write("欢迎使用！请在下方选择矩阵维度并输入数值。")
 
